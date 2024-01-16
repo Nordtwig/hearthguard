@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var movement_vector = get_movement_vector()
 	var direction = movement_vector.normalized()
-	velocity = direction * move_speed * delta
+	velocity = direction * move_speed
 	move_and_slide()
 
 
