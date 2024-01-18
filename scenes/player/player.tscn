@@ -11,6 +11,8 @@ collision_layer = 0
 script = ExtResource("1_y4yr3")
 move_speed = 20.0
 
+[node name="AbilityManager" type="Node" parent="."]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pq33p")
 offset = Vector2(0, -8)
