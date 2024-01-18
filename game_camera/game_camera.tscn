@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://eo01s2wkj0n8"]
+
+[ext_resource type="Script" path="res://game_camera/game_camera.gd" id="1_wnswm"]
+
+[node name="GameCamera" type="Camera2D"]
+script = ExtResource("1_wnswm")
+interpolation_weight = 10.0
