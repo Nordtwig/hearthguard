@@ -19,3 +19,6 @@ move_speed = 100.0
 
 [node name="BasicEnemy" parent="GameCamera" instance=ExtResource("4_w88x3")]
 position = Vector2(285, 166)
+
+[node name="BasicEnemy2" parent="GameCamera" instance=ExtResource("4_w88x3")]
+position = Vector2(176, 255)
