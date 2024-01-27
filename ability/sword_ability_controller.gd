@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
+# This happens every time the timer times out, shocker
 func on_timer_timeout() -> void:
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
