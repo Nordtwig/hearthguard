@@ -2,15 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://dduv4nmynhahm" path="res://scenes/player/player_combat.png" id="1_pq33p"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_y4yr3"]
-[ext_resource type="PackedScene" uid="uid://cskutmwenjjew" path="res://ability/sword_ability_controller.tscn" id="2_osu3t"]
+[ext_resource type="PackedScene" uid="uid://cskutmwenjjew" path="res://scenes/ability/sword_ability_controller.tscn" id="2_osu3t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0hls"]
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
+motion_mode = 1
 script = ExtResource("1_y4yr3")
-move_speed = 20.0
+move_speed = 150.0
 
 [node name="AbilityManager" type="Node" parent="."]
 

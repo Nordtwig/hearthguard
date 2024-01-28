@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var move_speed: float 
 
+const ACCELERATION_SMOOTHING = 25
+
 
 func _ready() -> void:
 	pass
@@ -10,7 +12,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var movement_vector = get_movement_vector()
 	var direction = movement_vector.normalized()
-	velocity = direction * move_speed
+	var target_velocity = direction * move_speed
+
+	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTHING))
 	move_and_slide()
 
 
