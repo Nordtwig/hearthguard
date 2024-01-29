@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export_range(0,200) var move_speed : float = 75
 
+@onready var health_component: HealthComponent = $HealthComponent
+
 
 func _ready() -> void:
 	$Area2D.area_entered.connect(on_area_entered)
@@ -21,4 +23,4 @@ func get_direction_to_player():
 
 
 func on_area_entered(_other_area: Area2D):
-	queue_free()
+	health_component.damage(100)
