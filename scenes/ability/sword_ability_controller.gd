@@ -3,14 +3,12 @@ extends Node
 @export var sword_ability: PackedScene
 @export var max_range : float = 150
 
+var damage = 5
+
 func _ready() -> void:
 	$Timer.timeout.connect(on_timer_timeout)
 
 
-func _process(delta: float) -> void:
-	pass
-
-# This happens every time the timer times out, shocker
 func on_timer_timeout() -> void:
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
@@ -30,8 +28,9 @@ func on_timer_timeout() -> void:
 		return a_distance < b_distance
 	)
 
-	var sword_instance = sword_ability.instantiate() as Node2D
+	var sword_instance = sword_ability.instantiate() as SwordAbility 
 	player.get_parent().add_child(sword_instance)
+	sword_instance.hitbox_component.damage = damage
 	sword_instance.global_position = enemies[0].global_position
 	sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
 	
