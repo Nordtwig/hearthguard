@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6ynn1xxe2emn"]
+[gd_scene load_steps=13 format=3 uid="uid://6ynn1xxe2emn"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_853y8"]
 [ext_resource type="PackedScene" uid="uid://wo5wnwl6xg0p" path="res://scenes/manager/experience_manager.tscn" id="1_cqk57"]
@@ -10,11 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://btefmwj4xrn34" path="res://scenes/manager/upgrade_manager.tscn" id="2_sqha2"]
 [ext_resource type="PackedScene" uid="uid://eo01s2wkj0n8" path="res://scenes/game_object/game_camera/game_camera.tscn" id="3_0mami"]
 [ext_resource type="PackedScene" uid="uid://cjv5e05ec6ndo" path="res://scenes/ui/experience_bar.tscn" id="3_dam15"]
+[ext_resource type="PackedScene" uid="uid://eywihtjimjqm" path="res://scenes/ui/vignette.tscn" id="3_jlo1n"]
 [ext_resource type="PackedScene" uid="uid://bfdy5s1yq8ajq" path="res://scenes/manager/enemy_manager.tscn" id="4_vac0u"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_853y8")
 end_screen_scene = ExtResource("2_m885k")
+
+[node name="Vignette" parent="." instance=ExtResource("3_jlo1n")]
 
 [node name="EnemyManager" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("4_vac0u")]
 arena_time_manager = NodePath("../ArenaTimeUI/ArenaTimeManager")
@@ -46,6 +49,5 @@ y_sort_enabled = true
 [node name="Player" parent="Entities" instance=ExtResource("1_fg7ca")]
 unique_name_in_owner = true
 position = Vector2(336, 187)
-move_speed = 100.0
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
