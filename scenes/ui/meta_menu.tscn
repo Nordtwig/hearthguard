@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk4744dpu18fw"]
+
+[ext_resource type="Script" path="res://scenes/ui/options_menu.gd" id="1_78406"]
+[ext_resource type="PackedScene" uid="uid://eywihtjimjqm" path="res://scenes/ui/vignette.tscn" id="2_bos7v"]
+
+[node name="MetaMenu" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_78406")
+
+[node name="Vignette" parent="." instance=ExtResource("2_bos7v")]
+layer = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
