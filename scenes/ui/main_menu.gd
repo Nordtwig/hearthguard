@@ -1,10 +1,12 @@
 extends CanvasLayer
 
 var options_scene = preload("res://scenes/ui/options_menu.tscn")
+var upgrades_scene = preload("res://scenes/ui/meta_menu.tscn")
 
 
 func _ready() -> void:
     %PlayButton.pressed.connect(on_play_pressed)
+    %UpgradesButton.pressed.connect(on_upgrades_pressed)
     %OptionsButton.pressed.connect(on_options_pressed)
     %QuitButton.pressed.connect(on_quit_pressed)
 
@@ -13,6 +15,20 @@ func on_play_pressed() -> void:
     ScreenTransition.transition()
     await ScreenTransition.transitioned_halfway
     get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+
+
+func on_upgrades_pressed() -> void:
+    ScreenTransition.transition()
+    await ScreenTransition.transitioned_halfway
+    $MarginContainer.visible = false
+    var upgrades_instance = upgrades_scene.instantiate()
+    add_child(upgrades_instance)
+    upgrades_instance.back_pressed.connect(on_upgrades_closed.bind(upgrades_instance))
+
+
+func on_upgrades_closed(upgrades_instance: Node) -> void:
+    $MarginContainer.visible = true
+    upgrades_instance.queue_free()
 
 
 func on_options_pressed() -> void:

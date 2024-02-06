@@ -9,7 +9,12 @@ func _ready() -> void:
 
 
 func on_died() -> void:
-    if randf() > drop_percent:
+    var adjusted_drop_percent = drop_percent
+    var experience_gain_upgrade_quantity = MetaProgression.get_meta_upgrade_quantity("experience_gain")
+    if experience_gain_upgrade_quantity > 0:
+        adjusted_drop_percent += .1
+
+    if randf() > adjusted_drop_percent:
         return 
 
     if vial_scene == null:

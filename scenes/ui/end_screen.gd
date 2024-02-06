@@ -37,4 +37,5 @@ func on_restart_button_pressed() -> void:
 func on_quit_button_pressed() -> void:
     ScreenTransition.transition()
     await ScreenTransition.transitioned_halfway
-    get_tree().quit()
+    get_tree().paused = false
+    get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
