@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_ejctj")
 id = "sword_damage"
-max_quantity = 0
+max_quantity = 10
 name = "Sword Damage"
 description = "Increases Sword Damage by 15%."
