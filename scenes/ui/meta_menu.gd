@@ -6,7 +6,7 @@ signal back_pressed
 
 var meta_upgrade_card_scene: PackedScene = preload("res://scenes/ui/meta_upgrade_card.tscn")
 
-@onready var grid_container: GridContainer = $MarginContainer/GridContainer
+@onready var grid_container: GridContainer = $MarginContainer/ScrollContainer/GridContainer
 @onready var back_button: Button = %BackButton
 
 

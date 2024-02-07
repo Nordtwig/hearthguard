@@ -22,22 +22,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/h_separation = 12
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="MetaUpgradeCard" parent="MarginContainer/GridContainer" instance=ExtResource("3_0gxa4")]
+[node name="MetaUpgradeCard" parent="MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_0gxa4")]
 layout_mode = 2
 
-[node name="MetaUpgradeCard2" parent="MarginContainer/GridContainer" instance=ExtResource("3_0gxa4")]
+[node name="MetaUpgradeCard2" parent="MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_0gxa4")]
 layout_mode = 2
 
-[node name="MetaUpgradeCard3" parent="MarginContainer/GridContainer" instance=ExtResource("3_0gxa4")]
+[node name="MetaUpgradeCard3" parent="MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_0gxa4")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard4" parent="MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_0gxa4")]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="MarginContainer"]
@@ -47,9 +53,9 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-offset_left = -3.0
-offset_top = 312.0
-offset_right = 73.0
-offset_bottom = 333.0
+offset_left = -11.0
+offset_top = 318.0
+offset_right = 39.0
+offset_bottom = 339.0
 size_flags_horizontal = 0
 text = "Back"
