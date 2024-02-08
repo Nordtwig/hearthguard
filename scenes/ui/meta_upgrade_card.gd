@@ -38,6 +38,7 @@ func update_progress() -> void:
 
 
 func on_upgrade_pressed() -> void:
+    print("Clicked")
     if upgrade == null:
         return
     MetaProgression.add_meta_upgrade(upgrade)

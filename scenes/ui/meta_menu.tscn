@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk4744dpu18fw"]
+[gd_scene load_steps=7 format=3 uid="uid://dk4744dpu18fw"]
 
 [ext_resource type="Script" path="res://scenes/ui/meta_menu.gd" id="1_eqmst"]
 [ext_resource type="PackedScene" uid="uid://eywihtjimjqm" path="res://scenes/ui/vignette.tscn" id="2_bos7v"]
 [ext_resource type="Resource" uid="uid://7x4j7ehniatt" path="res://resources/meta_upgrades/experience_gain.tres" id="2_qxg37"]
 [ext_resource type="PackedScene" uid="uid://dj5s357gbo82l" path="res://scenes/ui/meta_upgrade_card.tscn" id="3_0gxa4"]
+[ext_resource type="Resource" uid="uid://d3n3hl2hm2j5a" path="res://resources/meta_upgrades/health_regeneration.tres" id="3_02vm6"]
 [ext_resource type="PackedScene" uid="uid://dmutj3wxjxmbx" path="res://scenes/ui/sound_button.tscn" id="3_bu0rn"]
 
 [node name="MetaMenu" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_eqmst")
-upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_qxg37")])
+upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_qxg37"), ExtResource("3_02vm6")])
 
 [node name="Vignette" parent="." instance=ExtResource("2_bos7v")]
 layer = 3
@@ -20,36 +21,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_bottom = 16
+mouse_filter = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer"]
+[node name="MetaUpgradeCard" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_0gxa4")]
 layout_mode = 2
-size_flags_horizontal = 6
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-columns = 3
+mouse_filter = 0
 
-[node name="MetaUpgradeCard" parent="MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_0gxa4")]
+[node name="MetaUpgradeCard2" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_0gxa4")]
 layout_mode = 2
+mouse_filter = 0
 
-[node name="MetaUpgradeCard2" parent="MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_0gxa4")]
+[node name="MetaUpgradeCard3" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_0gxa4")]
 layout_mode = 2
+mouse_filter = 0
 
-[node name="MetaUpgradeCard3" parent="MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_0gxa4")]
-layout_mode = 2
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 344.0
+mouse_filter = 2
 
-[node name="MetaUpgradeCard4" parent="MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("3_0gxa4")]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="BackButton" parent="MarginContainer/Control" instance=ExtResource("3_bu0rn")]
+[node name="BackButton" parent="Control" instance=ExtResource("3_bu0rn")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
