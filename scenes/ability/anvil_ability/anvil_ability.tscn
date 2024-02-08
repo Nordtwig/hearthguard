@@ -1,9 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvam6d6go4j1h"]
+[gd_scene load_steps=20 format=3 uid="uid://cvam6d6go4j1h"]
 
 [ext_resource type="Texture2D" uid="uid://dp6uelit27vay" path="res://scenes/ability/anvil_ability/anvil.png" id="1_ia76x"]
 [ext_resource type="Script" path="res://scenes/ability/anvil_ability/anvil_ability.gd" id="1_n3clm"]
 [ext_resource type="PackedScene" uid="uid://cjrx78knlcpy7" path="res://scenes/component/hitbox_component.tscn" id="2_mlyo4"]
 [ext_resource type="Texture2D" uid="uid://b0k8vtdwubmxu" path="res://assets/particle.png" id="4_nmhb1"]
+[ext_resource type="PackedScene" uid="uid://pq7384we2vl0" path="res://scenes/component/random_stream_player_2d_component.tscn" id="5_qv316"]
+[ext_resource type="AudioStream" uid="uid://cgar0loq5uix7" path="res://assets/audio/impactPlate_heavy_000.ogg" id="6_tcg24"]
+[ext_resource type="AudioStream" uid="uid://cr7wddfq6r7gu" path="res://assets/audio/impactPlate_heavy_001.ogg" id="7_6ih46"]
+[ext_resource type="AudioStream" uid="uid://c0ymfd4iexnle" path="res://assets/audio/impactPlate_heavy_002.ogg" id="8_8nxym"]
+[ext_resource type="AudioStream" uid="uid://ckbq46r5tcmie" path="res://assets/audio/impactPlate_heavy_003.ogg" id="9_gghmp"]
+[ext_resource type="AudioStream" uid="uid://d2l05vlyxrkk3" path="res://assets/audio/impactPlate_heavy_004.ogg" id="10_6aeed"]
 
 [sub_resource type="Animation" id="Animation_d6eyd"]
 length = 0.001
@@ -122,6 +128,20 @@ tracks/4/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RandomStreamPlayer2DComponent")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_random"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_74qae"]
 _data = {
@@ -185,6 +205,7 @@ interpolate = false
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_ia76x")
 offset = Vector2(0, -7)
 
@@ -193,3 +214,8 @@ offset = Vector2(0, -7)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_ocpr1")
 disabled = true
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("5_qv316")]
+pitch_scale = 2.41
+streams = Array[AudioStream]([ExtResource("6_tcg24"), ExtResource("7_6ih46"), ExtResource("8_8nxym"), ExtResource("9_gghmp"), ExtResource("10_6aeed")])
+randomize_pitch = false
